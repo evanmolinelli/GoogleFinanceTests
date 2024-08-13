@@ -10,16 +10,15 @@ on:
     inputs:
       test_case:
         description: Test case to run
-        default: 'World'
         type: choice
         options:
           - all
           - test_finance_page
           - test_stock_symbols
 env:
-  all=discover
-  test_finance_page=-k test_finance_page
-  test_stock_symbols=-k test_stock_symbols
+  all: discover
+  test_finance_page: -k test_finance_page
+  test_stock_symbols: -k test_stock_symbols
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
