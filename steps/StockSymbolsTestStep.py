@@ -12,7 +12,8 @@ class StockSymbolsTestStep(BaseTestStep):
 
         # Compare with test data
         # Find symbols from section but not in test data
-        symbols_not_in_test: list[str] = self.compare_symbols_not_in_test_date(stock_symbols=stock_symbols, data=self.data)
+        symbols_not_in_test: list[str] = self.compare_symbols_not_in_test_date(stock_symbols=stock_symbols,
+                                                                               data=self.data)
         print(f"Stock symbols in section but not in test data: {symbols_not_in_test}")
 
         # Find symbols in test data
@@ -25,5 +26,5 @@ class StockSymbolsTestStep(BaseTestStep):
         return [symbol for symbol in stock_symbols if symbol not in data]
 
     def symbols_in_test_data(self, stock_symbols: list[str], data: list[str]) -> list[str]:
-        # Find symbols in test data
-        return [symbol for symbol in stock_symbols if symbol in data]
+        # Find symbols in test data but not in stock section
+        return [symbol for symbol in data if symbol not in stock_symbols]
