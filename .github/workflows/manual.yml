@@ -16,6 +16,10 @@ on:
           - all
           - test_finance_page
           - test_stock_symbols
+env:
+  all=discover
+  test_finance_page=-k test_finance_page
+  test_stock_symbols=-k test_stock_symbols
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,5 +34,5 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
     - name: Run Tests
-      run: python -m unittest -k ${{ github.event.inputs.test_case }} tests/test_finance_symbols.py
+      run: python -m unittest ${{ env[github.event.inputs.test_case] }}
 
