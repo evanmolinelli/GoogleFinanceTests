@@ -1,21 +1,21 @@
 # This is a basic workflow that is manually triggered
 
-name: Nightly Test Run
+# name: Nightly Test Run
 
-on:
-  schedule:
-    - cron: '0 0 * * *'  # Runs at midnight UTC
+# on:
+#   schedule:
+#     - cron: '0 0 * * *'  # Runs at midnight UTC
 
-jobs:
-  test:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: 3.9.1
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-    - name: Run Tests
-      run: python -m unittest discover
+# jobs:
+#   test:
+#     runs-on: windows-latest
+#     steps:
+#     - uses: actions/checkout@v3
+#     - name: Set up Python
+#       uses: actions/setup-python@v4
+#       with:
+#         python-version: 3.9.1
+#     - name: Install dependencies
+#       run: pip install -r requirements.txt
+#     - name: Run Tests
+#       run: python -m unittest discover
